@@ -1,4 +1,5 @@
 """Hierarchical Time-biased Gain
+
 Usage:
     hTBG.py --relevance=<json>
             --prediction=<json>
@@ -8,7 +9,7 @@ Usage:
 
 Options:
     -h --help                    show this help message and exit
-    -t --tbg                     run with non-hierarchical version of hTBG, stopping probabilities set to zero
+    -t --tbg                     run TBG, the non-hierarchical version of hTBG, stopping probabilities set to zero
     -v --verbose                 be verbose, print out hyper-parameters
     --p_click_true=<prob>        probability of clicking based on the summary if the target is relevant [default: 0.64]
     --p_click_false=<prob>       probability of clicking based on the summary if the target is not relevant [default: 0.39]
@@ -18,7 +19,13 @@ Options:
     --t_alpha=<float>            scaling factor from word to second [default: 0.018]
     --t_beta=<float>             bias factor from word to second [default: 7.8]
     --t_half_lives=<arg>         time (in second) of the half-live parameter in the decay function [default: 224. 1800.]
-    -o <path>, --output <path>   output path
+
+For the detailed meaning of the hyperparameters:
+Smucker, Mark D., and Charles LA Clarke. "Time-based calibration of effectiveness measures." SIGIR 2012
+
+For the detailed description of hTBG:
+Shing, Han-Chin, Resnik, Philip, and Oard, Doug. "A Prioritization Model for Suicidality Risk Assessment." ACL 2020
+
 Example:
     python hTBG.py --relevance ./hTBG_test/truth.json --prediction ./hTBG_test/prediction.json \
     --t_half_lives=3 --t_half_lives=5 --t_half_lives=10
@@ -72,16 +79,16 @@ from typing import Dict, Optional, List, Union, Any, Tuple
 from pprint import pprint
 
 
-default_htbg_parameters = {
-    "p_click_true": 0.64,
-    "p_click_false": 0.39,
-    "p_save_true": 0.77,
-    "p_save_false": 0.27,
-    "t_summary": 4.4,
-    "t_alpha": 0.018,
-    "t_beta": 7.8,
-    "t_half_lives": [224., 1800.]
-}
+# default_htbg_parameters = {
+#     "p_click_true": 0.64,
+#     "p_click_false": 0.39,
+#     "p_save_true": 0.77,
+#     "p_save_false": 0.27,
+#     "t_summary": 4.4,
+#     "t_alpha": 0.018,
+#     "t_beta": 7.8,
+#     "t_half_lives": [224., 1800.]
+# }
 
 
 class hTBG:
@@ -265,7 +272,7 @@ if __name__ == '__main__':
     hierarchical = True if not arguments['--tbg'] else False
     verbose = arguments['--verbose']
     # override = json.loads(arguments['--override'])
-    output_path = arguments['--output']
+    # output_path = arguments['--output']
     htbg_parameters = {
         "p_click_true": float(arguments['--p_click_true']),
         "p_click_false": float(arguments['--p_click_false']),
@@ -277,8 +284,8 @@ if __name__ == '__main__':
         "t_half_lives": list(map(float, arguments['--t_half_lives']))
     }
 
-    # if verbose:
-    print(arguments)
+    if verbose:
+        print(arguments)
 
     with open(relevance_path, 'r') as input_file:
         # print(input_file.readlines())
