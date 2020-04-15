@@ -42,7 +42,7 @@ For the detailed description of hTBG:
 
 ## Use as a library
 
-```
+```python
 from hTBG import hTBG
 from pprint import pprint
 
