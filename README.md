@@ -130,7 +130,9 @@ For an example, see `./hTBG_test/prediction.json`
 }
 ```
 
-## A toy example for hTBG
+## Example
+
+### A toy example for hTBG
 
 ```
 python hTBG.py --relevance ./hTBG_test/truth.json --prediction ./hTBG_test/prediction.json \
