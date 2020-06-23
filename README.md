@@ -1,6 +1,8 @@
-# hTBG
+# Hierarchical Time-Biased Gain (hTBG)
 
-## Hierarchical Time-Biased Gain (hTBG)
+An evaluation metric for hierarchical ranking
+
+## hTBG
 
 Hierarchical Time-Biased Gain (hTBG) implementation from the ACL2020 paper [A Prioritization Model for Suicidality Risk Assessment](https://www.aclweb.org/anthology/2020.acl-main.723.pdf) by Han-Chin Shing, Philip Resnik, and Doug Oard.
 
