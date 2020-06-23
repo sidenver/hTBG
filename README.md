@@ -2,7 +2,7 @@
 
 ## Hierarchical Time-Biased Gain (hTBG)
 
-Hierarchical Time-Biased Gain (hTBG) implementation from the ACL2020 paper **A Prioritization Model for Suicidality Risk Assessment** by Han-Chin Shing, Philip Resnik, and Doug Oard.
+Hierarchical Time-Biased Gain (hTBG) implementation from the ACL2020 paper [A Prioritization Model for Suicidality Risk Assessment](https://www.aclweb.org/anthology/2020.acl-main.723.pdf) by Han-Chin Shing, Philip Resnik, and Doug Oard.
 
 This repository contains implementation for hTBG and TBG only. The SuicideWatch dataset, due to privacy concern, is not included. Please see the [UMD SuicideWatch Dataset](http://legacydirs.umiacs.umd.edu/~resnik/umd_reddit_suicidality_dataset.html) page for how to obtain the data.
 
